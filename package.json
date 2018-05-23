@@ -2,9 +2,10 @@
   "name": "vistore",
   "version": "1.0.0",
   "description": "A library to manage localStorage and SessionStorage the easier possible way",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open"
+    "start": "webpack-dev-server --mode development --open",
+    "build": "webpack"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

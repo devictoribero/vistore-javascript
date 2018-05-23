@@ -1,9 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var Storage = /** @class */ (function () {
-    function Storage(transformer) {
-        this._transformer = transformer;
+    function Storage(serializer) {
+        this._serializer = serializer;
     }
     return Storage;
 }());
-exports.default = Storage;
+export default Storage;

@@ -1,8 +1,12 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var Serializer = /** @class */ (function () {
     function Serializer() {
     }
+    Serializer.prototype.serialize = function (data) {
+        return JSON.stringify(data);
+    };
+    Serializer.prototype.deserialize = function (dataSerialized) {
+        return JSON.parse(dataSerialized);
+    };
     return Serializer;
 }());
-exports.default = Serializer;
+export default Serializer;

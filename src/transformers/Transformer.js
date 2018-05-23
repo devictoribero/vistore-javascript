@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var Transformer = /** @class */ (function () {
     function Transformer(numberSerializer) {
         this.numberSerializer = numberSerializer;
@@ -25,4 +23,4 @@ var Transformer = /** @class */ (function () {
     };
     return Transformer;
 }());
-exports.default = Transformer;
+export default Transformer;

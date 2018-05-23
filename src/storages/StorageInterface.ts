@@ -4,7 +4,7 @@ export default interface StorageInterface {
 
   getAll(): any;
 
-  set(key: string, value: any, config?: object): void;
+  set(key: string, value: any, overwrite: boolean): void;
 
   remove(key: string): void;
 

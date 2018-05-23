@@ -1,4 +1,3 @@
-"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -9,7 +8,6 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
 var KeyAlreadyExistInLocalStorageException = /** @class */ (function (_super) {
     __extends(KeyAlreadyExistInLocalStorageException, _super);
     function KeyAlreadyExistInLocalStorageException() {
@@ -17,4 +15,4 @@ var KeyAlreadyExistInLocalStorageException = /** @class */ (function (_super) {
     }
     return KeyAlreadyExistInLocalStorageException;
 }(Error));
-exports.default = KeyAlreadyExistInLocalStorageException;
+export default KeyAlreadyExistInLocalStorageException;

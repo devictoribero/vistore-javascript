@@ -1,4 +1,3 @@
-"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -9,35 +8,35 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
-var KeyAlreadyExistInLocalStorageException_1 = require("./Exceptions/KeyAlreadyExistInLocalStorageException");
-var Storage_1 = require("../Storage");
+import KeyAlreadyExistInLocalStorageException from "./Exceptions/KeyAlreadyExistInLocalStorageException";
+import Storage from "../Storage";
 var LocalStorage = /** @class */ (function (_super) {
     __extends(LocalStorage, _super);
     function LocalStorage() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     LocalStorage.prototype.get = function (key) {
-        return this._transformer.deserialize(key);
+        return this._serializer.deserialize(key);
     };
     LocalStorage.prototype.getAll = function () {
-        var values = [];
         var keys = Object.keys(localStorage);
         var i = keys.length;
+        var values = [];
         while (i--) {
             values.push(localStorage.getItem(keys[i]));
         }
         return values;
     };
-    LocalStorage.prototype.set = function (key, value, config) {
-        if (!config.overwrite && localStorage.getItem(key)) {
-            throw new KeyAlreadyExistInLocalStorageException_1.default();
+    LocalStorage.prototype.set = function (key, value, overwrite) {
+        if (overwrite === void 0) { overwrite = true; }
+        if (!overwrite && localStorage.getItem(key)) {
+            throw new KeyAlreadyExistInLocalStorageException();
         }
-        localStorage.setItem(key, this._transformer.serialize(key, value));
+        localStorage.setItem(key, this._serializer.serialize(value));
     };
     LocalStorage.prototype.remove = function (key) {
         if (!localStorage.getItem(key)) {
-            throw new KeyAlreadyExistInLocalStorageException_1.default();
+            throw new KeyAlreadyExistInLocalStorageException();
         }
         localStorage.removeItem(key);
     };
@@ -45,5 +44,5 @@ var LocalStorage = /** @class */ (function (_super) {
         localStorage.clear();
     };
     return LocalStorage;
-}(Storage_1.default));
-exports.default = LocalStorage;
+}(Storage));
+export default LocalStorage;

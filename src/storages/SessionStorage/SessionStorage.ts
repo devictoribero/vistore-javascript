@@ -1,8 +1,8 @@
-import KeyAlreadyExistInLocalStorageException from "./Exceptions/KeyAlreadyExistInLocalStorageException";
+import KeyAlreadyExistInLocalStorageException from "./Exceptions/KeyAlreadyExistInSessionStorageException";
 import StorageInterface from "../StorageInterface";
 import Storage from "../Storage";
 
-export default class LocalStorage extends Storage implements StorageInterface {
+export default class SessionStorage extends Storage implements StorageInterface {
   get(key: string): any {
     return this._serializer.deserialize(key);
   }

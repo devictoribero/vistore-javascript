@@ -1,9 +1,9 @@
-import Transformer from "../transformers/Transformer";
+import CanSerialize from "../serializers/CanSerialize";
 
 export default abstract class Storage {
-  protected _transformer: Transformer;
+  protected _serializer: CanSerialize;
 
-  constructor(transformer: Transformer) {
-    this._transformer = transformer;
+  constructor(serializer: CanSerialize) {
+    this._serializer = serializer;
   }
 }

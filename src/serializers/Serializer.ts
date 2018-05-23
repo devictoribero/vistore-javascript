@@ -1,6 +1,13 @@
-export default abstract class Serializer {
+import canSerialize from "./CanSerialize";
 
-  abstract serialize(data: any);
+export default class Serializer implements canSerialize {
 
-  abstract deserialize(data: any);
+  serialize(data: any): string {
+    return JSON.stringify(data);
+  }
+
+  deserialize(dataSerialized: string): any {
+    return JSON.parse(dataSerialized);
+  }
+
 }
