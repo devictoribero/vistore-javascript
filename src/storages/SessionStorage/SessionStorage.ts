@@ -4,19 +4,7 @@ import Storage from "../Storage";
 
 export default class SessionStorage extends Storage implements StorageInterface {
   get(key: string): any {
-    return this._serializer.deserialize(key);
-  }
-
-  getAll(): any {
-    const keys = Object.keys(localStorage);
-    let i = keys.length;
-
-    let values = [];
-    while ( i-- ) {
-      values.push( localStorage.getItem(keys[i]) );
-    }
-
-    return values;
+    return this._serializer.deserialize(localStorage.getItem(key));
   }
 
   set(key: string, value: any, overwrite: boolean = true): void {

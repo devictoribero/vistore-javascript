@@ -16,16 +16,7 @@ var LocalStorage = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     LocalStorage.prototype.get = function (key) {
-        return this._serializer.deserialize(key);
-    };
-    LocalStorage.prototype.getAll = function () {
-        var keys = Object.keys(localStorage);
-        var i = keys.length;
-        var values = [];
-        while (i--) {
-            values.push(localStorage.getItem(keys[i]));
-        }
-        return values;
+        return this._serializer.deserialize(localStorage.getItem(key));
     };
     LocalStorage.prototype.set = function (key, value, overwrite) {
         if (overwrite === void 0) { overwrite = true; }
