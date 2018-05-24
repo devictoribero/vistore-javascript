@@ -1,7 +1,8 @@
 module.exports = {
   entry: './src/index.ts',
   output: {
-    publicPath: '/'
+    publicPath: '/',
+    filename: 'index.js'
   },
   devServer: {
     historyApiFallback: true

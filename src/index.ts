@@ -5,9 +5,9 @@ const serializer = new Serializer();
 const localVistorage = new Storage(window.localStorage, serializer);
 const sessionVistorage = new Storage(window.sessionStorage, serializer);
 
-const vistorage = {
+const Vistorage = {
   local: localVistorage,
   session: sessionVistorage,
 };
 
-console.log(vistorage.local);
+export default Vistorage;
