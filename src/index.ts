@@ -1,14 +1,13 @@
-import LocalStorage from "./storages/LocalStorage/LocalStorage";
 import Serializer from "./serializers/Serializer";
+import Storage from "./storages/Storage";
 
 const serializer = new Serializer();
-const localstorage = new LocalStorage(serializer);
-localstorage.set('name', 'Victor');
-localstorage.set('age', 25);
-localstorage.set('job', { company: 'Zeelo', role: 'frontend'});
-console.log(localstorage.get('name'));
-console.log(localstorage.get('age'));
-console.log(localstorage.get('job'));
-console.log(localstorage.remove('job'));
-console.log(localstorage.removeAll());
-console.log(localStorage);
+const localVistorage = new Storage(window.localStorage, serializer);
+const sessionVistorage = new Storage(window.sessionStorage, serializer);
+
+const vistorage = {
+  local: localVistorage,
+  session: sessionVistorage,
+};
+
+console.log(vistorage.local);
