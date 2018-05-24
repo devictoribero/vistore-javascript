@@ -1,6 +1,6 @@
 import Storage from "./storages/Storage";
-declare const Vistorage: {
+declare const vistore: {
     local: Storage;
     session: Storage;
 };
-export default Vistorage;
+export default vistore;
